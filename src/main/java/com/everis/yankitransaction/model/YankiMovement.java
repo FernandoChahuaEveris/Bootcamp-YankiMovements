@@ -18,10 +18,13 @@ import lombok.NoArgsConstructor;
 @Document
 public class YankiMovement {
 	@Id
-	private UUID id;
+	@Builder.Default
+	private UUID id = UUID.randomUUID();
 	
 	private String cellphoneNumber;
 	private Double amount;
 	private String typeMovement;
-	private LocalDateTime movementDate;
+	
+	@Builder.Default
+	private LocalDateTime movementDate = LocalDateTime.now();
 }
